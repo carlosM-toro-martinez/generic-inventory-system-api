@@ -1,0 +1,15 @@
+services:
+  postgresInventoryGeneric:
+    image: postgres:15
+    container_name: postgresInventoryGeneric
+    environment:
+      POSTGRES_USER: InventoryGeneric
+      POSTGRES_PASSWORD: InventoryGeneric.ps
+      POSTGRES_DB: InventoryGeneric_db
+    ports:
+      - "5436:5432"
+    volumes:
+      - postgresInventoryGeneric:/var/lib/postgresql/dataInventoryGeneric
+
+volumes:
+  postgresInventoryGeneric:
