@@ -49,13 +49,13 @@ async function createInitialData() {
     });
   }
 
-  const categorias = [{ nombre: "Bebidas Alcoholicas" }];
+  // const categorias = [{ nombre: "Bebidas Alcoholicas" }];
 
-  for (const categoria of categorias) {
-    await db.Categoria.findOrCreate({
-      where: { nombre: categoria.nombre },
-    });
-  }
+  // for (const categoria of categorias) {
+  //   await db.Categoria.findOrCreate({
+  //     where: { nombre: categoria.nombre },
+  //   });
+  // }
 
   await db.Cliente.findOrCreate({
     where: { nombre: "Cliente", apellido: "por defecto", codigo: "1" },
