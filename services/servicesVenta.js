@@ -22,6 +22,13 @@ class servicesVenta {
 
   async realizarVentaCompleta(dataVenta, detalles, id_caja) {
     return await sequelize.transaction(async (t) => {
+      dataVenta.fecha_venta = DateTime
+      .now()
+      .setZone("America/La_Paz")
+      .toJSDate();
+
+      console.log(dataVenta);
+      
       const venta = await Venta.create(dataVenta, { transaction: t });
 
       if (dataVenta.metodo_pago === "Contado") {
@@ -59,7 +66,6 @@ class servicesVenta {
 
   async grabarDetallesYAjustarInventario(id_venta, detalles, transaction) {
     const mods = {};
-    console.log(detalles);
 
     for (const det of detalles) {
       const {
