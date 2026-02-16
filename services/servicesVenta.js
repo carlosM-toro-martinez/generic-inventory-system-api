@@ -343,7 +343,9 @@ class servicesVenta {
 
   async getAllVentas() {
     try {
-      const ventas = await Venta.findAll();
+      const ventas = await Venta.findAll({
+        order: [['fecha_venta', 'DESC']]
+      });
       return ventas;
     } catch (error) {
       console.error("Error fetching all ventas:", error);
@@ -380,7 +382,6 @@ class servicesVenta {
               {
                 model: Producto,
                 as: "producto",
-                attributes: ["nombre"],
               },
             ],
           },

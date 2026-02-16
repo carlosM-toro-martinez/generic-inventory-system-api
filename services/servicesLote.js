@@ -38,6 +38,7 @@ class servicesLote {
             },
           },
         ],
+        order: [['fecha_ingreso', 'DESC']]
       });
       return lotes;
     } catch (error) {
